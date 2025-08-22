@@ -1,0 +1,30 @@
+#header {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background: red;
+    z-index: 1000;
+}
+
+#menu {
+    float: left;
+    font-size: 18px;
+}
+
+#menu ul li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+}
+
+#menu a:hover {
+    color: pink;
+}

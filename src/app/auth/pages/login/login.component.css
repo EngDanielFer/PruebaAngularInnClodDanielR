@@ -4,3 +4,18 @@
     -moz-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
 }
+
+#login {
+    margin-top: 60px;
+}
+
+#titulo-login {
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#titulo-login h1 {
+    font-size: 35px;
+    color: #7310c9;
+}

@@ -1,0 +1,34 @@
+<div *ngIf="!loginUser; else bienvenido">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="form-element">
+            <div class="formLabel">
+                <label for="usuario">Usuario: </label>
+            </div>
+            <input type="text" id="usuario" formControlName="usuario">
+            <div *ngIf="controlUsuario.invalid && controlUsuario.touched">
+                <div *ngIf="controlUsuario.errors" class="error">Usuario se requiere</div>
+            </div>
+        </div>
+        <div class="form-element">
+            <div class="formLabel">
+                <label for="clave">Contraseña: </label>
+            </div>
+            <input type="password" id="clave" formControlName="clave">
+            <div *ngIf="controlClave.invalid && controlClave.touched">
+                <div *ngIf="controlClave.errors" class="error">Contraseña se requiere y debe tener al menos 8
+                    caracteres,
+                    mayúscula, minúscula, número y un carácter especial.</div>
+            </div>
+        </div>
+        <div id="btn-entrar">
+            <button type="submit" [disabled]="formulario.invalid">Entrar</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #bienvenido>
+    <div id="template-bienvenido">
+        <p>Bienvenido, {{loginUser}}</p>
+        <button id="btn-cerrar-sesion" (click)="logout()">Cerrar sesión</button>
+    </div>
+</ng-template>

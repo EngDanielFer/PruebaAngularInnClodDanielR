@@ -1,0 +1,51 @@
+<div id="tareas">
+    <div id="titulo-tareas">
+        <h1>Lista de tareas: {{id}}</h1>
+    </div>
+</div>
+<div id="formularioTareas">
+    <h3>Ingresar nueva tarea</h3>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="form-element">
+            <div class="formLabel">
+                <label for="titulo">Título:</label>
+            </div>
+            <input type="text" id="titulo" class="form-inputs" formControlName="titulo">
+            <div *ngIf="formulario.get('titulo')?.invalid && formulario.get('titulo')?.touched">
+                <div *ngIf="formulario.get('titulo')?.errors" class="error">
+                    Se requiere el título
+                </div>
+            </div>
+        </div>
+        <div class="form-element">
+            <label for="completada">¿Completada?</label>
+            <input type="checkbox" name="completada" id="completada" formControlName="completada">
+        </div>
+        <div id="btn-guardar">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+<div id="divTablaTareas">
+    <table id="tablaTareas">
+        <thead>
+            <tr>
+                <th [width]="60">ID</th>
+                <th [width]="500">Título</th>
+                <th [width]="150">Completada</th>
+                <th [width]="250">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of tareas">
+                <td>{{ tarea.id }}</td>
+                <td>{{ tarea.title }}</td>
+                <td>{{ tarea.completed ? 'Sí' : 'No' }}</td>
+                <td>
+                    <button class="btn-editar" (click)="editarTarea(tarea)">Editar</button>
+                    <button class="btn-eliminar" (click)="eliminarTarea(tarea.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

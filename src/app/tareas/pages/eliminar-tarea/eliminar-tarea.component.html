@@ -1,0 +1,8 @@
+<h3 mat-dialog-title>{{ data.titulo }}</h3>
+<mat-dialog-content>
+    <p>{{ data.mensaje }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button (click)="onCancel()" id="btnCancelar">Cancelar</button>
+    <button mat-raised-button color="warn" id="btnEliminar" (click)="onConfirm()">Eliminar</button>
+</mat-dialog-actions>
